@@ -1,0 +1,23 @@
+<view class="bd-example">
+  <form>
+    <view class="form-group p-name">
+      <label for="p-name">卡包名称</label>
+      <input id="p-name" type="text" value="{{pdata.name}}" bindinput="inname" class="form-control"
+        placeholder="请输入卡包名称" />
+    </view>
+    <label for="p-img" bindtap="uploadimg">卡包封面</label>
+    <view class="form-group p-img" bindtap="uploadimg">
+      <image mode="aspectFill" src="{{pdata.img}}"></image>
+    </view>
+    <view class="form-group p-date">
+      <label for="p-date">更新时间</label>
+      <picker mode="date" value="{{pdata.date}}" start="2015-09-01" end="2017-09-01" bindchange="indate">
+        <view class="form-control">{{pdata.date}}
+        </view>
+      </picker>
+    </view>
+    <view class="text-center">
+      <button class="btn btn-primary" bindtap="adddata" type="submit">添加卡包</button>
+    </view>
+  </form>
+</view>

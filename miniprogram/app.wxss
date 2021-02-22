@@ -1,0 +1,28 @@
+page,
+view,form,input,button {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+page {
+  font: 24rpx/1 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+  background-color: #e1e5ea;
+}
+label{
+  display: inline-block;
+  margin-bottom: 16rpx;
+  line-height: 1.5;
+}
+.d-flex{
+  display: flex;
+}
+.justify-content-center{
+  justify-content: center;
+}
+.align-items-center{
+  align-items: center;
+}
+.text-center{
+  text-align: center;
+}

@@ -1,14 +1,39 @@
 {
   "pages": [
+    "pages/data/index",
+    "pages/setting/add-package/index",
+    "pages/setting/index",
     "pages/index/index",
-    "pages/user/index"
+    "pages/user/index",
+    "pages/community/index",
+    "pages/news/index"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "云开发 QuickStart",
+    "navigationBarTitleText": "栗子小球",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/data/index",
+        "text": "数据"
+      },
+      {
+        "pagePath": "pages/news/index",
+        "text": "发现"
+      },
+      {
+        "pagePath": "pages/community/index",
+        "text": "社区"
+      }
+    ]
   },
   "sitemapLocation": "sitemap.json",
   "style": "v2"
