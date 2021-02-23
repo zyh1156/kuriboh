@@ -5,12 +5,34 @@ Page({
    * 页面的初始数据
    */
   data: {
+    attribute: [],
+    effect: [],
+    effectText: '',
+    effectObj: {},
+    level: [],
+    race: [],
     rarity: [],
     type: [],
     type2: [],
+    keywords: [],
+    keywordsText: '',
+    keywordsText2: '',
+    keywordsObj: {},
+    getkeywords: false,
     card: {
+      attribute: '',
+      level: '',
+      race: '',
       rarity: '',
-      type: []
+      type: [],
+      name: '',
+      keywords: [],
+      img: '',
+      details: '',
+      effect: [],
+      attack: '',
+      defense: '',
+
     }
   },
 
@@ -77,6 +99,10 @@ Page({
       data: {},
       complete: res => {
         that.setData({
+          'attribute': res.result.basics.attribute,
+          'effect': res.result.effect,
+          'level': res.result.basics.level,
+          'race': res.result.race,
           'rarity': res.result.rarity,
           'type': res.result.type
         })
@@ -91,7 +117,6 @@ Page({
     this.setData({
       'card.rarity': val
     })
-    console.log(res);
   },
   //初始化
   changeConfig() {
@@ -124,7 +149,228 @@ Page({
     }
     console.log(res);
   },
-  bindType(res){
-    console.log(res);
+  // 设置卡片种类
+  bindType(res) {
+    this.setData({
+      'card.type': res.detail.value
+    })
+  },
+  // 设置种族
+  bindRace(res) {
+    let val = parseInt(res.detail.value);
+    this.setData({
+      'card.race': val
+    })
+  },
+  // 设置等级
+  bindLevel(res) {
+    let val = parseInt(res.detail.value);
+    this.setData({
+      'card.level': val
+    })
+  },
+  // 设置属性
+  bindAttribute(res) {
+    let val = parseInt(res.detail.value);
+    this.setData({
+      'card.attribute': val
+    })
+  },
+  // 设置卡片名称
+  inname(res) {
+    this.setData({
+      'card.name': res.detail.value
+    })
+  },
+  // 添加图片
+  uploadimg() {
+    let that = this;
+    // 让用户选择一张图片
+    wx.chooseImage({
+      success: chooseResult => {
+        // 将图片上传至云存储空间
+        wx.cloud.uploadFile({
+          // 指定上传到的云路径
+          cloudPath: new Date().getTime() + '.png',
+          // 指定要上传的文件的小程序临时文件路径
+          filePath: chooseResult.tempFilePaths[0],
+          // 成功回调
+          success: res => {
+            that.setData({
+              'card.img': res.fileID
+            })
+          },
+        })
+      },
+    })
+  },
+  // 添加效果类型
+  binEffect(res) {
+    let val = parseInt(res.detail.value);
+    let obj = this.data.effect[val];
+    this.setData({
+      effectText: obj.name,
+      effectObj: obj
+    })
+  },
+  addEffect() {
+    let arr = this.data.card.effect;
+    arr.push(this.data.effectObj);
+    this.setData({
+      effectText: '',
+      effectObj: {},
+      'card.effect': arr
+    })
+  },
+  bindKeywords(res) {
+    let inx = res.currentTarget.dataset.inx;
+    let obj = this.data.keywords[inx];
+    this.setData({
+      keywordsText: obj.text,
+      keywordsText2: obj.text,
+      keywordsObj: obj
+    })
+  },
+  addKeywords() {
+    let text = this.data.keywordsText2;
+    if (text == '') {
+      return
+    } else if (this.data.keywordsObj.text == undefined) {
+      this.newKeywords(text);
+      return;
+    }
+    let arr = this.data.card.keywords;
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i].text == text) {
+        this.setData({
+          keywordsText: '',
+          keywordsText2: '',
+          keywordsObj: {}
+        })
+        return;
+      }
+    }
+    arr.push(this.data.keywordsObj);
+    this.setData({
+      keywordsText: '',
+      keywordsObj: {},
+      'card.keywords': arr
+    })
+  },
+  newKeywords(text) {
+    let arr = this.data.keywords;
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i].text == text) {
+        flag = true;
+        this.setData({
+          keywordsObj: arr[i]
+        });
+        this.addKeywords();
+        return
+      }
+    }
+    const db = wx.cloud.database();
+    let that = this;
+    db.collection('keywords').add({
+      // data 字段表示需新增的 JSON 数据
+      data: {
+        text: text
+      },
+      success: function (res) {
+        // res 是一个对象，其中有 _id 字段标记刚创建的记录的 id
+        let obj = {
+          text: text,
+          _id: res._id
+        }
+        that.setData({
+          keywordsObj: obj
+        })
+        that.addKeywords();
+      }
+    })
+  },
+  // 设置攻击力
+  bindAtk(res) {
+    this.setData({
+      'card.attack': res.detail.value
+    })
+  },
+  // 设置守备力
+  bindDef(res) {
+    this.setData({
+      'card.defense': res.detail.value
+    })
+  },
+  inkeywords(res) {
+    let keywords = res.detail.value;
+    if (keywords.length < 1) {
+      return
+    } else {
+      this.setData({
+        keywordsText2: keywords
+      })
+    }
+    const db = wx.cloud.database();
+    let that = this;
+    db.collection('keywords').where({
+      text: db.RegExp({
+        regexp: keywords,
+        options: 'i',
+      })
+    }).get().then(res => {
+      console.log(res);
+      that.setData({
+        keywords: res.data,
+        getkeywords: true
+      })
+    })
+  },
+  nosearch() {
+    this.setData({
+      getkeywords: false
+    })
+  },
+  //添加描述
+  addDetails(res) {
+    let val = res.detail.value;
+    this.setData({
+      'card.details': val
+    })
+  },
+  // 添加卡片
+  addCard() {
+    let data = this.data.card;
+    let flag = false;
+    console.log(data);
+    for (let v in data) {
+      if (data[v] === "") {
+        if (data.type[0] == 0 &&
+          (v == 'attack' || v == 'defense' || v == 'level' || v == 'race' || v == 'attribute')) {
+          flag = true
+        }
+      }
+      if (data[v] == [] && v == 'type') {
+        flag = true;
+      }
+    }
+    if (flag) {
+      wx.showToast({
+        title: '请完整填写',
+        icon: 'error'
+      })
+      return;
+    }
+    const db = wx.cloud.database();
+    let that = this;
+    db.collection('cards').add({
+      // data 字段表示需新增的 JSON 数据
+      data: data,
+      success: function (res) {
+        wx.showToast({
+          title: '添加成功',
+          icon: 'error'
+        })
+      }
+    })
   }
 })

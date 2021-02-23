@@ -1,5 +1,5 @@
 page,
-view,form,input,button {
+view,form,input,button,textarea,picker,text {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -23,6 +23,15 @@ label{
 .align-items-center{
   align-items: center;
 }
+.align-items-end{
+  align-items: flex-end;
+}
 .text-center{
   text-align: center;
+}
+.flex-wrap{
+  flex-wrap: wrap;
+}
+.w-100{
+  width: 100%;
 }

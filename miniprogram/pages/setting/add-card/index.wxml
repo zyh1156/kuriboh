@@ -1,10 +1,11 @@
 <view class="bd-example">
   <form>
+    <!-- 第一列 -->
     <view class="form-row">
       <view class="form-group p-name col-6">
         <label for="p-name">稀有度</label>
         <picker bindchange="bindRarity" range-key="name" range="{{rarity}}">
-          <view class="form-control">
+          <view class="form-control text-center">
             <text wx:for="{{rarity}}" wx:if="{{card.rarity===index}}" wx:for-item="item" wx:for-index="index"
               wx:key="index">{{item.name}}</text>
           </view>
@@ -13,29 +14,122 @@
       <view class="form-group p-name col-6">
         <label for="p-name">卡片种类</label>
         <picker bindchange="bindType" bindcolumnchange="changeType" mode="multiSelector" range="{{type2}}">
-          <view class="form-control">
-            <text wx:for="{{rarity}}" wx:if="{{card.rarity===index}}" wx:for-item="item" wx:for-index="index"
-              wx:key="index">{{item.name}}</text>
+          <view class="form-control text-center">
+            <text wx:for="{{type2[1]}}" wx:if="{{card.type[1]==index}}" wx:for-item="item" wx:for-index="index"
+              wx:key="index">{{item}} </text>
+            <text wx:for="{{type2[0]}}" wx:if="{{card.type[0]==index}}" wx:for-item="item" wx:for-index="index"
+              wx:key="index"> {{item}}</text>
           </view>
         </picker>
       </view>
     </view>
+    <!-- 第二列 -->
+    <view class="form-row" wx:if="{{card.type[0]===0}}">
+      <view class="form-group p-name col-6">
+        <label for="p-name">种族</label>
+        <picker bindchange="bindRace" range-key="name" range="{{race}}">
+          <view class="form-control text-center">
+            <text wx:for="{{race}}" wx:if="{{card.race===index}}" wx:for-item="item" wx:for-index="index"
+              wx:key="index">{{item.name}}</text>
+          </view>
+        </picker>
+      </view>
+      <view class="form-group p-name col-3">
+        <label for="p-name">等级</label>
+        <picker bindchange="bindLevel" range="{{level}}">
+          <view class="form-control text-center">
+            <text wx:for="{{level}}" wx:if="{{card.level===index}}" wx:for-item="item" wx:for-index="index"
+              wx:key="index">{{item}}</text>
+          </view>
+        </picker>
+      </view>
+      <view class="form-group p-name col-3">
+        <label for="p-name">属性</label>
+        <picker bindchange="bindAttribute" range="{{attribute}}">
+          <view class="form-control text-center">
+            <text wx:for="{{attribute}}" wx:if="{{card.attribute===index}}" wx:for-item="item" wx:for-index="index"
+              wx:key="index">{{item}}</text>
+          </view>
+        </picker>
+      </view>
+    </view>
+    <!-- 第三列 -->
     <view class="form-group p-name">
       <label for="p-name">卡片名称</label>
       <input id="p-name" type="text" value="{{pdata.name}}" bindinput="inname" class="form-control"
         placeholder="请输入卡片名称" />
     </view>
-    <view class="form-group p-name">
-      <label for="p-name">卡片类型</label>
-      <input id="p-name" type="text" value="{{pdata.name}}" bindinput="inname" class="form-control"
-        placeholder="请输入卡片名称" />
+    <!-- 第七列 -->
+    <view class="form-row align-items-end">
+      <view class="form-group p-name col-9">
+        <label for="p-name">检索字段</label>
+        <input id="p-name" type="text" value="{{keywordsText}}" bindinput="inkeywords" bindblur="nosearch"
+          class="form-control" placeholder="请输入检索字段" />
+        <view class="dropdown-menu" wx:if="{{keywords.length>0&&getkeywords}}">
+          <view class="dropdown-item" wx:for="{{keywords}}" wx:for-item="item" wx:key="index" wx:for-index="index" data-inx="{{index}}" bindtap="bindKeywords">{{item.text}}</view>
+        </view>
+      </view>
+      <view class="form-group p-name col-3">
+        <view class="btn btn-success btn-add w-100" bindtap="addKeywords">添加</view>
+      </view>
     </view>
-    <label for="p-img" bindtap="uploadimg">卡包封面</label>
+    <view class="d-flex flex-wrap form-group">
+      <view class="alert alert-primary alert-dismissible" wx:for="{{card.keywords}}" wx:for-item="item">
+        <text>{{item.text}}</text>
+        <view class="close">
+          <text>×</text>
+        </view>
+      </view>
+    </view>
+    <!-- 第五列 -->
+    <label for="p-img" bindtap="uploadimg">卡图（建议像素为：530*530）</label>
     <view class="form-group p-img" bindtap="uploadimg">
-      <image mode="aspectFill" src="{{pdata.img}}"></image>
+      <image mode="aspectFit" src="{{card.img}}"></image>
+    </view>
+
+    <!-- 第四列 -->
+    <view class="form-group p-name">
+      <label for="p-name">卡片描述</label>
+      <textarea maxlength="-1" auto-height="true" class="form-control details" bindinput="addDetails"></textarea>
+    </view>
+    <!-- 第七列 -->
+    <view class="form-row align-items-end">
+      <view class="form-group p-name col-9">
+        <label for="p-name">效果类型</label>
+        <picker bindchange="binEffect" range-key="name" range="{{effect}}">
+          <view class="form-control">{{effectText}}</view>
+        </picker>
+        <view class="dropdown-menu" wx:if="{{keywords.length>0&&getkeywords}}">
+          <view class="dropdown-item" wx:for="{{keywords}}" wx:for-item="item" wx:key="index">{{item.text}}</view>
+        </view>
+      </view>
+      <view class="form-group p-name col-3">
+        <view class="btn btn-success btn-add w-100" bindtap="addEffect">添加</view>
+      </view>
+    </view>
+    <view class="d-flex flex-wrap form-group">
+      <view class="alert alert-primary alert-dismissible" wx:for="{{card.effect}}" wx:for-item="item">
+        <text>{{item.name}}</text>
+        <view class="close">
+          <text>×</text>
+        </view>
+      </view>
+    </view>
+    <!-- 第六列 -->
+    <view class="form-row" wx:if="{{card.type[0]===0}}">
+      <view class="form-group p-name col-6">
+        <label for="p-name">攻击力</label>
+        <input id="p-name" type="text" value="{{pdata.name}}" bindinput="bindAtk" class="form-control"
+          placeholder="请输入卡片攻击力" />
+      </view>
+      <view class="form-group p-name col-6">
+        <label for="p-name">守备力</label>
+        <input id="p-name" type="text" value="{{pdata.name}}" bindinput="bindDef" class="form-control"
+          placeholder="请输入卡片守备力" />
+      </view>
     </view>
     <view class="text-center">
-      <button class="btn btn-primary" bindtap="adddata" type="submit">添加卡片</button>
+      <button class="btn btn-primary" type="button"  bindtap="addCard">添加卡片</button>
     </view>
   </form>
 </view>
