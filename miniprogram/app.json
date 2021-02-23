@@ -1,10 +1,10 @@
 {
   "pages": [
     "pages/setting/add-card/index",
+    "pages/index/index",
     "pages/data/index",
     "pages/setting/add-package/index",
     "pages/setting/index",
-    "pages/index/index",
     "pages/user/index",
     "pages/community/index",
     "pages/news/index"

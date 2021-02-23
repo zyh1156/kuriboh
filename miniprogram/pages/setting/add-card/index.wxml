@@ -1,3 +1,37 @@
-<view>
-  
+<view class="bd-example">
+  <form>
+    <view class="form-row">
+      <view class="form-group p-name col-6">
+        <label for="p-name">稀有度</label>
+        <picker bindchange="bindRarity" range-key="name" range="{{rarity}}">
+          <view class="form-control">
+            <text wx:for="{{rarity}}" wx:if="{{card.rarity===index}}" wx:for-item="item" wx:for-index="index"
+              wx:key="index">{{item.name}}</text>
+          </view>
+        </picker>
+      </view>
+      <view class="form-group p-name col-6">
+        <label for="p-name">稀有度</label>
+        <input id="p-name" type="text" value="{{pdata.name}}" bindinput="inname" class="form-control"
+          placeholder="请输入卡片名称" />
+      </view>
+    </view>
+    <view class="form-group p-name">
+      <label for="p-name">卡片名称</label>
+      <input id="p-name" type="text" value="{{pdata.name}}" bindinput="inname" class="form-control"
+        placeholder="请输入卡片名称" />
+    </view>
+    <view class="form-group p-name">
+      <label for="p-name">卡片类型</label>
+      <input id="p-name" type="text" value="{{pdata.name}}" bindinput="inname" class="form-control"
+        placeholder="请输入卡片名称" />
+    </view>
+    <label for="p-img" bindtap="uploadimg">卡包封面</label>
+    <view class="form-group p-img" bindtap="uploadimg">
+      <image mode="aspectFill" src="{{pdata.img}}"></image>
+    </view>
+    <view class="text-center">
+      <button class="btn btn-primary" bindtap="adddata" type="submit">添加卡片</button>
+    </view>
+  </form>
 </view>

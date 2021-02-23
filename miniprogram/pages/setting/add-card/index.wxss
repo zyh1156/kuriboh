@@ -1,1 +1,1 @@
-/* miniprogram/pages/setting/add-card/index.wxss */
+@import "../../../style/style.wxss";

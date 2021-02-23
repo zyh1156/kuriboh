@@ -5,7 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    rarity: [],
+    card: {
+      rarity: ''
+    }
   },
 
   /**
@@ -63,13 +66,26 @@ Page({
   onShareAppMessage: function () {
 
   },
-  getConfig(){
+  // 获取基础配置
+  getConfig() {
+    let that = this;
     wx.cloud.callFunction({
       name: 'config',
       data: {},
       complete: res => {
+        that.setData({
+          'rarity': res.result.rarity
+        })
         console.log(res);
       },
     })
+  },
+  // 设置稀有度
+  bindRarity(res) {
+    let val = parseInt(res.detail.value);
+    this.setData({
+      'card.rarity': val
+    })
+    console.log(res);
   }
 })
