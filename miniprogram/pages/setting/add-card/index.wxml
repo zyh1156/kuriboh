@@ -11,9 +11,13 @@
         </picker>
       </view>
       <view class="form-group p-name col-6">
-        <label for="p-name">稀有度</label>
-        <input id="p-name" type="text" value="{{pdata.name}}" bindinput="inname" class="form-control"
-          placeholder="请输入卡片名称" />
+        <label for="p-name">卡片种类</label>
+        <picker bindchange="bindType" bindcolumnchange="changeType" mode="multiSelector" range="{{type2}}">
+          <view class="form-control">
+            <text wx:for="{{rarity}}" wx:if="{{card.rarity===index}}" wx:for-item="item" wx:for-index="index"
+              wx:key="index">{{item.name}}</text>
+          </view>
+        </picker>
       </view>
     </view>
     <view class="form-group p-name">
