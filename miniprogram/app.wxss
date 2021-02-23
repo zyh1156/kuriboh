@@ -6,7 +6,7 @@ view,form,input,button {
 }
 
 page {
-  font: 24rpx/1 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+  font: 24rpx/1 "SF Pro SC","SF Pro Text","SF Pro Icons","PingFang SC","Helvetica Neue","Helvetica","Arial",sans-serif;
   background-color: #e1e5ea;
 }
 label{

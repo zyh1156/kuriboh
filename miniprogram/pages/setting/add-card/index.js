@@ -5,7 +5,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    rarity: [],
+    type: [],
+    type2: [],
+    card: {
+      rarity: '',
+      type: []
+    }
   },
 
   /**
@@ -63,13 +69,62 @@ Page({
   onShareAppMessage: function () {
 
   },
-  getConfig(){
+  // 获取基础配置
+  getConfig() {
+    let that = this;
     wx.cloud.callFunction({
       name: 'config',
       data: {},
       complete: res => {
+        that.setData({
+          'rarity': res.result.rarity,
+          'type': res.result.type
+        })
+        this.changeConfig();
         console.log(res);
       },
     })
+  },
+  // 设置稀有度
+  bindRarity(res) {
+    let val = parseInt(res.detail.value);
+    this.setData({
+      'card.rarity': val
+    })
+    console.log(res);
+  },
+  //初始化
+  changeConfig() {
+    let type = this.data.type;
+    let arr = new Array(),
+      arr2 = new Array();
+    for (let i = 0; i < type.length; i++) {
+      arr2.push(type[i].name);
+    }
+    arr.push(arr2);
+    arr.push(type[0].list);
+    this.setData({
+      'type2': arr
+    })
+  },
+  // 修改卡片种类时
+  changeType(res) {
+    let type = this.data.type;
+    if (res.detail.column == 0) {
+      let arr = new Array(),
+        arr2 = new Array();
+      for (let i = 0; i < type.length; i++) {
+        arr2.push(type[i].name);
+      }
+      arr.push(arr2);
+      arr.push(type[res.detail.value].list);
+      this.setData({
+        'type2': arr
+      })
+    }
+    console.log(res);
+  },
+  bindType(res){
+    console.log(res);
   }
 })
