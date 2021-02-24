@@ -114,7 +114,7 @@ Page({
         return;
       }
     }
-    
+
     db.collection('card-package').add({
       data: that.data.pdata,
       success: res => {
@@ -122,6 +122,9 @@ Page({
           title: '添加成功',
           icon: 'success'
         })
+        setTimeout(() => {
+          wx.navigateBack()
+        }, 1500)
       },
       fail: res => {
         console.log(res);

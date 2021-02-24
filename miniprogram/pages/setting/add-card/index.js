@@ -227,66 +227,44 @@ Page({
     let obj = this.data.keywords[inx];
     this.setData({
       keywordsText: obj.text,
-      keywordsText2: obj.text,
       keywordsObj: obj
     })
   },
   addKeywords() {
-    let text = this.data.keywordsText2;
-    if (text == '') {
-      return
-    } else if (this.data.keywordsObj.text == undefined) {
-      this.newKeywords(text);
+    let i, key = this.data.keywordsText2,
+      keys = this.data.keywords;
+    for (i = 0; i < keys.length; i++) {
+      if (keys[i].text == key) {
+        this.setData({
+          keywordsObj: keys[i]
+        })
+        break;
+      }
+    }
+    if (this.data.keywordsObj.text == undefined) {
+      wx.showToast({
+        title: '字段无效',
+        icon: 'error'
+      })
       return;
     }
+    // 字段查重
     let arr = this.data.card.keywords;
-    for (let i = 0; i < arr.length; i++) {
+    for (i = 0; i < arr.length; i++) {
       if (arr[i].text == text) {
         this.setData({
           keywordsText: '',
-          keywordsText2: '',
           keywordsObj: {}
         })
         return;
       }
     }
+    // 添加字段
     arr.push(this.data.keywordsObj);
     this.setData({
       keywordsText: '',
       keywordsObj: {},
       'card.keywords': arr
-    })
-  },
-  newKeywords(text) {
-    let arr = this.data.keywords;
-    for (let i = 0; i < arr.length; i++) {
-      if (arr[i].text == text) {
-        flag = true;
-        this.setData({
-          keywordsObj: arr[i]
-        });
-        this.addKeywords();
-        return
-      }
-    }
-    const db = wx.cloud.database();
-    let that = this;
-    db.collection('keywords').add({
-      // data 字段表示需新增的 JSON 数据
-      data: {
-        text: text
-      },
-      success: function (res) {
-        // res 是一个对象，其中有 _id 字段标记刚创建的记录的 id
-        let obj = {
-          text: text,
-          _id: res._id
-        }
-        that.setData({
-          keywordsObj: obj
-        })
-        that.addKeywords();
-      }
     })
   },
   // 设置攻击力
@@ -305,10 +283,6 @@ Page({
     let keywords = res.detail.value;
     if (keywords.length < 1) {
       return
-    } else {
-      this.setData({
-        keywordsText2: keywords
-      })
     }
     const db = wx.cloud.database();
     let that = this;
@@ -318,9 +292,9 @@ Page({
         options: 'i',
       })
     }).get().then(res => {
-      console.log(res);
       that.setData({
         keywords: res.data,
+        keywordsText2: keywords,
         getkeywords: true
       })
     })

@@ -14,7 +14,7 @@
   border-bottom: none;
 }
 .package-li .p-img{
-  width: 180rpx;
+  width: 213rpx;
   height: 120rpx;
 }
 .package-li .p-about{

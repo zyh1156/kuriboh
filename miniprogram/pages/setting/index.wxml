@@ -4,6 +4,6 @@
     <view class="set-li">常见问题</view>
   </view>
   <view class="set-ul">
-    <view class="set-li">控制台</view>
+    <navigator class="set-li" url="/pages/setting/console/index">控制台</navigator>
   </view>
 </view>

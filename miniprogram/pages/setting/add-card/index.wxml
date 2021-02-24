@@ -66,7 +66,8 @@
         <input id="p-name" type="text" value="{{keywordsText}}" bindinput="inkeywords" bindblur="nosearch"
           class="form-control" placeholder="请输入检索字段" />
         <view class="dropdown-menu" wx:if="{{keywords.length>0&&getkeywords}}">
-          <view class="dropdown-item" wx:for="{{keywords}}" wx:for-item="item" wx:key="index" wx:for-index="index" data-inx="{{index}}" bindtap="bindKeywords">{{item.text}}</view>
+          <view class="dropdown-item" wx:for="{{keywords}}" wx:for-item="item" wx:key="index" wx:for-index="index"
+            data-inx="{{index}}" bindtap="bindKeywords">{{item.text}}</view>
         </view>
       </view>
       <view class="form-group p-name col-3">
@@ -74,7 +75,8 @@
       </view>
     </view>
     <view class="d-flex flex-wrap form-group">
-      <view class="alert alert-primary alert-dismissible" wx:for="{{card.keywords}}" wx:for-item="item">
+      <view class="alert alert-primary alert-dismissible" wx:for="{{card.keywords}}" wx:for-index="index"
+        wx:for-item="item" wx:key="index">
         <text>{{item.text}}</text>
         <view class="close">
           <text>×</text>
@@ -108,7 +110,7 @@
       </view>
     </view>
     <view class="d-flex flex-wrap form-group">
-      <view class="alert alert-primary alert-dismissible" wx:for="{{card.effect}}" wx:for-item="item">
+      <view class="alert alert-primary alert-dismissible" wx:for="{{card.effect}}" wx:for-index="index" wx:for-item="item" wx:key="index">
         <text>{{item.name}}</text>
         <view class="close">
           <text>×</text>
@@ -129,7 +131,7 @@
       </view>
     </view>
     <view class="text-center">
-      <button class="btn btn-primary" type="button"  bindtap="addCard">添加卡片</button>
+      <button class="btn btn-primary" type="button" bindtap="addCard">添加卡片</button>
     </view>
   </form>
 </view>
