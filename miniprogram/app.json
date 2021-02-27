@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/index/index",
+    "pages/cards/list/index",
     "pages/setting/add-card/index",
+    "pages/index/index",
     "pages/setting/console/index",
     "pages/data/index",
     "pages/setting/add-package/index",
@@ -9,7 +10,8 @@
     "pages/user/index",
     "pages/community/index",
     "pages/news/index",
-    "pages/setting/keywords/index"
+    "pages/setting/keywords/index",
+    "pages/cards/card/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#15191d",

@@ -1,0 +1,5 @@
+@import '/app.wxss';
+.rarity .img{
+  width: 85rpx;
+  height: 21rpx;
+}

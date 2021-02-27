@@ -1,0 +1,31 @@
+.bac{
+  min-height: 100vh;
+  background: center top/750rpx auto;
+  background-image: url(https://746f-toyh-60e91-1300604454.tcb.qcloud.la/bg.jpg?sign=d4777615dabb6fc28fc76e418f75dd4f&t=1614446916);
+}
+.top-bar {
+  height: 8rpx;
+  background-image: linear-gradient(to bottom, #469ebf, #102e5e, #3c88ab);
+}
+.filter{
+  color: #fff;
+  font-size: 26rpx;
+  font-weight: bold;
+  line-height: 1.5;
+}
+.card-list{
+  padding:0 15rpx 12rpx;
+}
+.card-list .card-li{
+  margin: 12rpx 12rpx 0 0;
+}
+.card-list .card-li:nth-child(6n){
+  margin-right: 0;
+}
+.card-list .card-li .img{
+  margin-top: 2rpx;
+}
+.card-list .card-li .img image{
+  width: 110rpx;
+  height: 160rpx;
+}

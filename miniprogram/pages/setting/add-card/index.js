@@ -103,7 +103,7 @@ Page({
           'effect': res.result.effect,
           'level': res.result.basics.level,
           'race': res.result.race,
-          'rarity': res.result.rarity,
+          'rarity': res.result.basics.rarity,
           'type': res.result.type
         })
         this.changeConfig();

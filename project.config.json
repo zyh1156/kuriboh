@@ -43,20 +43,24 @@
   "simulatorPluginLibVersion": {},
   "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
   "condition": {
-    "search": {
-      "list": []
-    },
-    "conversation": {
-      "list": []
-    },
     "plugin": {
       "list": []
     },
     "game": {
       "list": []
     },
-    "miniprogram": {
+    "gamePlugin": {
       "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/cards/card/index",
+          "pathName": "pages/cards/card/index",
+          "query": "cardid=b00064a760367b6a0701b8880b2111d3",
+          "scene": null
+        }
+      ]
     }
   }
 }

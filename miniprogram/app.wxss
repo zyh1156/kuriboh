@@ -1,5 +1,5 @@
 page,
-view,form,input,button,textarea,picker,text {
+view,form,input,button,textarea,picker,text,image {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -15,10 +15,13 @@ label{
   line-height: 1.5;
 }
 .d-flex{
-  display: flex;
+  display: flex!important;
 }
 .justify-content-center{
   justify-content: center;
+}
+.justify-content-end{
+  justify-content: flex-end;
 }
 .align-items-center{
   align-items: center;

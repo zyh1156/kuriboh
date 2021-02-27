@@ -4,10 +4,10 @@
     <view class="form-row">
       <view class="form-group p-name col-6">
         <label for="p-name">稀有度</label>
-        <picker bindchange="bindRarity" range-key="name" range="{{rarity}}">
+        <picker bindchange="bindRarity" range="{{rarity}}">
           <view class="form-control text-center">
             <text wx:for="{{rarity}}" wx:if="{{card.rarity===index}}" wx:for-item="item" wx:for-index="index"
-              wx:key="index">{{item.name}}</text>
+              wx:key="index">{{item}}</text>
           </view>
         </picker>
       </view>
