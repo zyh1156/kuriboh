@@ -1,11 +1,15 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/find/index",
+    "pages/index/index",
+    "pages/me/index",
+    "pages/data/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#15191d",
     "navigationBarTextStyle": "white",
-    "navigationBarTitleText": "栗子小球"
+    "navigationBarTitleText": "栗子小球",
+    "backgroundColor":"#e1e5ea"
   },
   "tabBar": {
     "list": [
@@ -14,15 +18,15 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/data/index",
         "text": "数据"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/find/index",
         "text": "发现"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/me/index",
         "text": "我的"
       }
     ]
