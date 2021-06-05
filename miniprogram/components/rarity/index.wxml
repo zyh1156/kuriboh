@@ -1,6 +1,0 @@
-<view class="rarity d-flex justify-content-end align-items-end">
-  <image class="img" wx:if="{{rarity==0}}" src="/images/rarity/ur.png"></image>
-  <image class="img" wx:elif="{{rarity==1}}" src="/images/rarity/sr.png"></image>
-  <image class="img" wx:elif="{{rarity==2}}" src="/images/rarity/r.png"></image>
-  <image class="img" wx:else src="/images/rarity/n.png"></image>
-</view>

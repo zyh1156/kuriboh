@@ -1,9 +1,0 @@
-<view>
-  <view class="set-ul">
-    <view class="set-li">反馈</view>
-    <view class="set-li">常见问题</view>
-  </view>
-  <view class="set-ul">
-    <navigator class="set-li" url="/pages/setting/console/index">控制台</navigator>
-  </view>
-</view>

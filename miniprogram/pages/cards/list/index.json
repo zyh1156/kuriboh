@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "rarity": "/components/rarity/index"
-  },
-  "navigationBarTitleText": "卡片列表"
-}
