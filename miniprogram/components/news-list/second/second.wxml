@@ -1,0 +1,18 @@
+
+    <!-- 小新闻 -->
+    <view class="news-li second d-flex">
+      <view class="img"></view>
+      <view class="w-100 text d-flex flex-wrap align-content-between">
+        <view class="title w-100">{{title}}</view>
+        <view class="about d-flex w-100 justify-content-between">
+          <view class="a-txt time">
+            <text class="iconfont icon-shijian" space="space"></text>
+            <text>15分钟</text>
+          </view>
+          <view class="a-txt read">
+            <text class="iconfont icon-yanjing"></text>
+            <text>2313133</text>
+          </view>
+        </view>
+      </view>
+    </view>

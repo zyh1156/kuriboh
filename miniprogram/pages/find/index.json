@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "first":"/components/news-list/first/first",
+    "second":"/components/news-list/second/second"
+  }
 }

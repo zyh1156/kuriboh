@@ -1,15 +1,17 @@
 {
   "pages": [
     "pages/find/index",
-    "pages/index/index",
+    "pages/brain/addnews/index",
+    "pages/brain/index/index",
     "pages/me/index",
+    "pages/index/index",
     "pages/data/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#15191d",
     "navigationBarTextStyle": "white",
     "navigationBarTitleText": "栗子小球",
-    "backgroundColor":"#e1e5ea"
+    "backgroundColor": "#e1e5ea"
   },
   "tabBar": {
     "list": [

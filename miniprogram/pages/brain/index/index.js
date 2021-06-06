@@ -1,13 +1,11 @@
-// miniprogram/pages/find/index.js
+// miniprogram/pages/brain/index/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    menu: ['新闻', 'RPG', '直播'],
-    menuIndex: 0,
-    newsList: []
+
   },
 
   /**
@@ -28,7 +26,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getData();
+
   },
 
   /**
@@ -64,33 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-  // 切换菜单
-  changeMenu: function (evt) {
-    let index = evt.target.dataset.index;
-    this.setData({
-      menuIndex: index
-    })
-  },
-  // 获取数据
-  getData() {
-    const db = wx.cloud.database();
-    let that = this;
-    db.collection("news").orderBy("createTime", "desc").get({
-      success: res => {
-        let list = res.data;
-        for (let i = 0; i < list.length; i++) {
-          if (list[i].level == 0) {
-            let first = list[i];
-            list.splice(i, 1);
-            list.unshift(first);
-            break;
-          }
-        }
-        that.setData({
-          newsList:list
-        })
-      }
-    })
   }
 })

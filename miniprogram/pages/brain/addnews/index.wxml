@@ -1,0 +1,39 @@
+<view class="bd-example">
+<form bindsubmit="save">
+  <view class="form-group form-row">
+    <view class="col-2 col-form-label">优先级</view>
+    <view class="col-4">
+      <picker bindchange="bindPickerChange" value="{{form.level}}" range="{{array}}">
+        <view class="form-control text-center">
+          <text wx:if="{{form.level==0}}">顶级</text>
+          <text wx:else>次级</text>
+        </view>
+      </picker>
+    </view>
+  </view>
+  <view class="form-group form-row">
+    <view class="col-2 col-form-label">标题</view>
+    <view class="col-10">
+      <input type="text" bindinput="inputTitle" class="form-control" />
+    </view>
+  </view>
+  <view class="form-group">
+    <view class="col-form-label">正文内容</view>
+    <view>
+      <textarea maxlength="-1" name="content" class="form-control content" />
+    </view>
+  </view>
+  <view class="form-group">
+    <view class="col-form-label">可获得卡牌</view>
+    <view class="img-ul">
+      <image mode="aspectFill" class="img-li" src="{{item}}" wx:key="index" wx:for="{{form.imglist}}"></image>
+      <view class="img-li add-icon" bindtap="addimg">
+        <view class="iconfont icon-increase"></view>
+      </view>
+    </view>
+  </view>
+  <view>
+    <button form-type="submit">发布</button>
+  </view>
+</form>
+</view>

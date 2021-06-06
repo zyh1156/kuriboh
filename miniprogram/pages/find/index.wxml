@@ -4,29 +4,12 @@
     <view class="col-4 menu-li {{menuIndex==index?'active':''}}" wx:for="{{menu}}" wx:key="index" bindtap="changeMenu"
       data-index="{{index}}">{{item}}</view>
   </view>
+
   <!-- 新闻列表 -->
   <view class="news-ul">
-    <!-- 大新闻 -->
-    <view class="news-li first">
-      <view class="img"></view>
-      <view class="w-100 position-relative">
-        <view class="text-center title">白色巨塔</view>
-        <view class="about d-flex">
-          <view class="a-txt time">15分钟</view>
-          <view class="a-txt read">31114141</view>
-        </view>
-      </view>
-    </view>
-    <!-- 小新闻 -->
-    <view class="news-li second d-flex">
-      <view class="img"></view>
-      <view class="w-100 text d-flex flex-wrap align-content-between">
-        <view class="title w-100">白色巨塔白色巨塔白色巨塔白色巨塔白色巨塔白色巨塔白色巨塔白色巨塔白色巨塔</view>
-        <view class="about d-flex w-100 justify-content-between">
-          <view class="a-txt time">15分钟</view>
-          <view class="a-txt read">31114141</view>
-        </view>
-      </view>
+    <view wx:key="index" wx:for="{{newsList}}">
+      <first wx:if="{{item.level==0}}" title="{{item.title}}"></first>
+      <second wx:else title="{{item.title}}"></second>
     </view>
   </view>
 </view>
