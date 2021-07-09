@@ -28,6 +28,7 @@
       "outputPath": ""
     },
     "enableEngineNative": false,
+    "bundle": false,
     "useIsolateContext": true,
     "useCompilerModule": true,
     "userConfirmedUseCompilerModuleSwitch": false,
@@ -55,9 +56,9 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/cards/card/index",
-          "pathName": "pages/cards/card/index",
-          "query": "cardid=b00064a760367b6a0701b8880b2111d3",
+          "name": "pages/find/detail/index",
+          "pathName": "pages/find/detail/index",
+          "query": "id=79550af260e8149d256a362241c6dbe2",
           "scene": null
         }
       ]
