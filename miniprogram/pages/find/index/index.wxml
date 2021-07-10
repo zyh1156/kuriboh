@@ -4,11 +4,10 @@
     <view class="col-4 menu-li {{menuIndex==index?'active':''}}" wx:for="{{menu}}" wx:key="index" bindtap="changeMenu"
       data-index="{{index}}">{{item}}</view>
   </view>
-
   <!-- 新闻列表 -->
   <view class="news-ul">
-    <navigator url="../detail/index?id={{item._id}}" wx:key="index" wx:for="{{newsList}}">
-      <first wx:if="{{item.level==0}}" title="{{item.title}}"></first>
+    <navigator url="/pages/detail/index?id={{item._id}}" wx:key="index" wx:for="{{newsList}}">
+      <first wx:if="{{item.level==0}}" zdata="{{item}}"></first>
       <second wx:else title="{{item.title}}"></second>
     </navigator>
   </view>

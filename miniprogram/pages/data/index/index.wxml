@@ -1,0 +1,35 @@
+<view>
+  <!-- 游戏资料 -->
+  <view class="data-box">
+    <view class="title">
+      <text class="iconfont icon-shuju"></text>
+      <text>游戏资料</text>
+    </view>
+    <view class="data-body d-flex justify-content-between text-center c-ul">
+      <view class="c-li">
+        <view class="ico">王</view>
+        <view>上王卡组</view>
+      </view>
+      <view class="c-li">
+        <view class="ico">分</view>
+        <view>刷分卡组</view>
+      </view>
+      <view class="c-li">
+        <view class="ico">乐</view>
+        <view>娱乐卡组</view>
+      </view>
+      <view class="c-li">
+        <view class="ico">魂</view>
+        <view>魂系卡组</view>
+      </view>
+    </view>
+  </view>
+  <!-- 职业联赛 -->
+  <view class="data-box">
+    <view class="title">
+      <text class="iconfont icon-huiyuan"></text>
+      <text>赛事相关</text>
+    </view>
+    <view class="data-body"></view>
+  </view>
+</view>

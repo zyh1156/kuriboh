@@ -1,12 +1,10 @@
-// components/news-list/first/first.js
+// components/detail/detail.js
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-    zdata:{
-      type:Object
-    }
+
   },
 
   /**

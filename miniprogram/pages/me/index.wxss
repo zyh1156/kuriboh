@@ -1,1 +1,25 @@
-/* miniprogram/pages/me/index.wxss */
+@import '/style/style.wxss';
+.user{
+  height: 140rpx;
+  padding: 0 18rpx;
+  border-bottom: 2rpx solid #ddd;
+  background-color: #fff;
+}
+.user .avatar{
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.user .detail{
+  padding-left: 32rpx;
+}
+.user .uname{
+  font-size: 30rpx;
+  line-height: 58rpx;
+  font-weight: bold;
+}
+.list-group{
+  margin-top: 16rpx;
+}

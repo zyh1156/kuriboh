@@ -1,5 +1,52 @@
 
 
+.d-flex {
+  display: flex !important;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.justify-content-end {
+  justify-content: flex-end;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.align-items-end {
+  align-items: flex-end;
+}
+
+.align-content-between {
+  align-content: space-between;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.position-relative {
+  position: relative;
+}
+.text-center{
+  text-align: center;
+}
+
 .form-group {
   margin-bottom: 1rem;
   position: relative;
@@ -128,9 +175,6 @@
   background-color: #28a745;
   border-color: #28a745;
 }
-textarea.form-control {
-  min-height: 72rpx;
-}
 .dropdown-menu {
   position: absolute;
   top: 100%;
@@ -196,12 +240,12 @@ textarea.form-control {
   flex-direction: column;
   padding-left: 0;
   margin-bottom: 0;
-  border-radius: .25rem;
+  border-radius: 8rpx;
 }
 .list-group .list-group-item {
   position: relative;
   display: block;
-  padding: .75rem 1.25rem;
+  padding: 24rpx 20rpx;
   background-color: #fff;
   border: 1px solid rgba(0,0,0,.125);
 }

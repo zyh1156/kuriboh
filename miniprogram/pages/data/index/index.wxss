@@ -1,0 +1,36 @@
+/* miniprogram/pages/data/index.wxss */
+@import '/style/style.wxss';
+@import '/style/iconfont.wxss';
+.data-box{
+  margin:30rpx 0 0 0;
+}
+.data-box .title{
+  color: #181f29;
+  font-size: 24rpx;
+  line-height: 30rpx;
+  padding: 0 0 0 20rpx;
+}
+.title .iconfont{
+  margin-right: 12rpx;
+}
+.data-body{
+  margin-top: 12rpx;
+  background-color: #fff;
+}
+.c-ul{
+  padding: 18rpx 35rpx;
+}
+.c-ul .c-li{
+  width: 115rpx;
+  font-size: 24rpx;
+  line-height: 30rpx;
+}
+.cul .cli:nth-child(n+4){
+  margin-top: 30rpx;
+}
+.c-ul .ico{
+  color: #c44928;
+  font-size: 48rpx;
+  font-weight: bold;
+  padding: 18rpx;
+}

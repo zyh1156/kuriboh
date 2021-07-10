@@ -3,7 +3,7 @@
   <view class="img"></view>
   <view class="w-100 position-relative">
     <view class="text-center title">
-      <text>{{title}}</text>
+      <text>{{zdata.title}}</text>
     </view>
     <view class="about d-flex">
       <view class="a-txt time">
