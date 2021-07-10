@@ -1,11 +1,12 @@
 {
   "pages": [
-    "pages/find/index",
+    "pages/find/index/index",
     "pages/brain/addnews/index",
     "pages/brain/index/index",
     "pages/me/index",
     "pages/index/index",
-    "pages/data/index"
+    "pages/data/index",
+    "pages/find/detail/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#15191d",
@@ -24,7 +25,7 @@
         "text": "数据"
       },
       {
-        "pagePath": "pages/find/index",
+        "pagePath": "pages/find/index/index",
         "text": "发现"
       },
       {

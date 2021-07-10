@@ -1,0 +1,21 @@
+/* miniprogram/pages/find/detail/index.wxss */
+.title {
+  height: 420rpx;
+  padding: 26rpx 40rpx;
+}
+
+.title .text {
+  color: #fff;
+  font-size: 36rpx;
+  line-height: 52rpx;
+  font-weight: bold;
+}
+.detail{
+  color: #0e1621;
+  font-size: 28rpx;
+  line-height: 52rpx;
+  padding:38rpx;
+}
+.footer{
+  height: 150rpx;
+}

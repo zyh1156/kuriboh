@@ -7,9 +7,9 @@
 
   <!-- 新闻列表 -->
   <view class="news-ul">
-    <view wx:key="index" wx:for="{{newsList}}">
+    <navigator url="../detail/index?id={{item._id}}" wx:key="index" wx:for="{{newsList}}">
       <first wx:if="{{item.level==0}}" title="{{item.title}}"></first>
       <second wx:else title="{{item.title}}"></second>
-    </view>
+    </navigator>
   </view>
 </view>
