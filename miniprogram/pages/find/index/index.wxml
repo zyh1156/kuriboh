@@ -6,9 +6,9 @@
   </view>
   <!-- 新闻列表 -->
   <view class="news-ul">
-    <navigator url="/pages/detail/index?id={{item._id}}" wx:key="index" wx:for="{{newsList}}">
+    <navigator url="/pages/detail/index?id={{item._id}}&type=0" wx:key="index" wx:for="{{newsList}}">
       <first wx:if="{{item.level==0}}" zdata="{{item}}"></first>
-      <second wx:else title="{{item.title}}"></second>
+      <second wx:else zdata="{{item}}"></second>
     </navigator>
   </view>
 </view>

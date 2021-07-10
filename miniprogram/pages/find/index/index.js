@@ -80,6 +80,7 @@ Page({
       success: res => {
         let list = res.data;
         for (let i = 0; i < list.length; i++) {
+          list[i].createTime = new Date(list[i].createTime).getTime();
           if (list[i].level == 0) {
             let first = list[i];
             list.splice(i, 1);
@@ -88,7 +89,7 @@ Page({
           }
         }
         that.setData({
-          newsList:list
+          newsList: list
         })
       }
     })

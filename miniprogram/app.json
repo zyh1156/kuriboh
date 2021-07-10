@@ -1,11 +1,11 @@
 {
   "pages": [
+    "pages/find/index/index",
+    "pages/index/index",
+    "pages/brain/addnews/index",
     "pages/me/index",
     "pages/data/index/index",
-    "pages/find/index/index",
-    "pages/brain/addnews/index",
     "pages/brain/index/index",
-    "pages/index/index",
     "pages/detail/index"
   ],
   "window": {

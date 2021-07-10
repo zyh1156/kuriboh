@@ -4,10 +4,36 @@ Page({
    * 页面的初始数据
    */
   data: {
-    array: ['顶级', '次级'],
+    types: [{
+        text: "新闻",
+        value: "news"
+      },
+      {
+        text: "上王卡组",
+        value: "king"
+      },
+      {
+        text: "刷分卡组",
+        value: "score"
+      },
+      {
+        text: "娱乐卡组",
+        value: "happy"
+      },
+      {
+        text: "魂系卡组",
+        value: "soul"
+      }
+    ],
+    level: ['顶级', '次级'],
+    databaseName: "news",
+    requireTitle: false,
+    requireCover: false,
     form: {
-      title: "",
+      type: 0,
       level: 1,
+      title: "",
+      cover: "",
       content: "",
       imglist: []
     }
@@ -68,7 +94,15 @@ Page({
   onShareAppMessage: function () {
 
   },
-  bindPickerChange(e) {
+  bindTypesChange(e) {
+    let value = e.detail.value,
+      name = this.data.types[value].value;
+    this.setData({
+      'databaseName': name,
+      'form.type': value
+    })
+  },
+  bindLevelChange(e) {
     this.setData({
       'form.level': e.detail.value
     })
@@ -79,7 +113,8 @@ Page({
       'form.title': value
     })
   },
-  addimg() {
+  addimg(evt) {
+    let type = evt.currentTarget.dataset.type == 0;
     let that = this;
     // 让用户选择一张图片
     wx.chooseImage({
@@ -87,7 +122,7 @@ Page({
         console.log(chooseResult);
         // 判断图片大小
         let size = chooseResult.tempFiles[0].size;
-        if (size > 2 * 1000 * 1000) {
+        if (size > 4 * 1000 * 1000) {
           wx.showToast({
             title: '图片过大',
             icon: 'error'
@@ -103,13 +138,23 @@ Page({
           filePath: chooseResult.tempFilePaths[0],
           // 成功回调
           success: res => {
-            that.addimg2(res.fileID);
+            if (type) {
+
+              that.addimg2(res.fileID);
+            } else {
+              that.addimg3(res.fileID);
+            }
           },
         })
       },
     })
   },
   addimg2(url) {
+    this.setData({
+      'form.cover': url
+    })
+  },
+  addimg3(url) {
     let arr = this.data.form.imglist;
     arr.push(url);
     this.setData({
@@ -117,9 +162,30 @@ Page({
     })
   },
   save(evt) {
+    if (this.data.form.title == "") {
+      this.setData({
+        'requireTitle': true
+      })
+      return;
+    }
+
+    if (this.data.form.cover == "") {
+      this.setData({
+        'requireCover': true
+      })
+      return;
+    }
+    this.setData({
+      'requireTitle': false,
+      'requireCover': false
+    })
+    this.save2(evt);
+  },
+  save2(evt) {
     const db = wx.cloud.database();
     let form = this.data.form;
-    db.collection("news").add({
+    let name = this.data.databaseName;
+    db.collection(name).add({
       data: {
         ...form,
         content: evt.detail.value.content,

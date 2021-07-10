@@ -1,1 +1,31 @@
-/* components/detail/detail.wxss */
+/* miniprogram/pages/find/detail/index.wxss */
+@import '/style/style.wxss';
+.title {
+  height: 420rpx;
+  padding: 26rpx 40rpx;
+  position: relative;
+}
+.title .cover{
+  width: 100%;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.title .text {
+  color: #fff;
+  font-size: 36rpx;
+  line-height: 52rpx;
+  font-weight: bold;
+  position: relative;
+  z-index: 5;
+}
+.detail{
+  color: #0e1621;
+  font-size: 28rpx;
+  line-height: 52rpx;
+  padding:38rpx;
+}
+.footer{
+  height: 150rpx;
+}

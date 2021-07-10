@@ -1,2 +1,22 @@
 <!--components/detail/detail.wxml-->
-<text>components/detail/detail.wxml</text>
+<view>
+  <!-- 标题 -->
+  <view class="title d-flex align-items-end text-center">
+    <!-- 封面 -->
+    <view class="cover">
+    <image mode="aspectFill" src="{{detail.cover}}"></image>
+    </view>
+    <view class="text w-100">{{detail.title}}</view>
+  </view>
+  <!-- 内容 -->
+  <view class="detail">
+    <view>
+      <text>{{detail.content}}</text>
+    </view>
+    <!-- 图片 -->
+    <view>
+      <image lazy-load="true" wx:key="index" mode="aspectFit" src="{{item}}" wx:for="{{detail.imglist}}"></image>
+    </view>
+  </view>
+  <view class="footer"></view>
+</view>

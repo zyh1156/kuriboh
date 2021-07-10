@@ -5,17 +5,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    detail: {
-      title: "",
-      imglist:[]
-    }
+    detail: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getData(options.id);
+    this.getData(options);
   },
 
   /**
@@ -66,17 +63,37 @@ Page({
   onShareAppMessage: function () {
 
   },
-  getData(id) {
+  getData(options) {
+    let id = options.id,
+      databaseName;
+    switch (parseInt(options.type)) {
+      case 0:
+        databaseName = "news";
+        break;
+      case 1:
+        databaseName = "king";
+        break;
+      case 2:
+        databaseName = "score";
+        break;
+      case 3:
+        databaseName = "happy";
+        break;
+      case 4:
+        databaseName = "soul";
+        break;
+    }
     const db = wx.cloud.database();
-    db.collection('news').where({
+    db.collection(databaseName).where({
       _id: id
     }).get().then(res => {
       // res.data 包含该记录的数据
       let data = res.data[0];
-      console.log(data);
       this.setData({
         detail: data
       })
+    }, res => {
+      console.log(res);
     })
   }
 })
