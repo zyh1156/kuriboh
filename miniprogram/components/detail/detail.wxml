@@ -3,9 +3,7 @@
   <!-- 标题 -->
   <view class="title d-flex align-items-end text-center">
     <!-- 封面 -->
-    <view class="cover">
-    <image mode="aspectFill" src="{{detail.cover}}"></image>
-    </view>
+    <image class="cover" mode="aspectFill" src="{{detail.cover}}"></image>
     <view class="text w-100">{{detail.title}}</view>
   </view>
   <!-- 内容 -->

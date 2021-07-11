@@ -119,7 +119,6 @@ Page({
     // 让用户选择一张图片
     wx.chooseImage({
       success: chooseResult => {
-        console.log(chooseResult);
         // 判断图片大小
         let size = chooseResult.tempFiles[0].size;
         if (size > 4 * 1000 * 1000) {
@@ -191,8 +190,14 @@ Page({
         content: evt.detail.value.content,
         createTime: db.serverDate()
       }
-    }).then(res => {
-      console.log(res);
+    }).then(() => {
+      wx.showToast({
+        title: "添加成功",
+        icon: "success",
+        success: () => {
+          wx.navigateBack();
+        }
+      })
     })
   }
 })

@@ -1,0 +1,18 @@
+<view>
+  <navigator url="/pages/detail/index?id={{first._id}}&type=2" class="first">
+    <view class="cover">
+      <image src="{{first.cover}}" class="img" mode="aspectFill"></image>
+      <view class="title">{{first.title}}</view>
+    </view>
+    <view></view>
+  </navigator>
+  <view class="card-list">
+    <navigator url="/pages/detail/index?id={{item._id}}&type=2" class="list-li" wx:for="{{list}}" wx:key="index">
+      <view class="cover">
+        <image src="{{item.cover}}" mode="aspectFill" class="img"></image>
+        <view class="title">{{item.title}}</view>
+      </view>
+      <view></view>
+    </navigator>
+  </view>
+</view>

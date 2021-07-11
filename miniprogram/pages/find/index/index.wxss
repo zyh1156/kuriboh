@@ -27,5 +27,5 @@
 }
 .news-ul{
   margin-top: 84rpx;
-  border-top: 3px solid #dde2e7;
+  border-top: 2rpx solid #dde2e7;
 }

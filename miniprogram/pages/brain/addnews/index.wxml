@@ -33,7 +33,10 @@
       </view>
     </view>
     <view class="form-group">
-      <view class="col-form-label">封面图片</view>
+      <view class="col-form-label">
+      <text>封面图片</text>
+      <text class="small">（建议比例：7:4）</text>
+      </view>
       <view class="img-ul">
         <view wx:if="{{form.cover==''}}" class="img-li add-icon" data-type="0" bindtap="addimg">
           <view class="iconfont icon-increase"></view>

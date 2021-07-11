@@ -1,10 +1,11 @@
 {
   "pages": [
-    "pages/find/index/index",
     "pages/index/index",
+    "pages/data/index/index",
+    "pages/data/cardlist/index",
+    "pages/find/index/index",
     "pages/brain/addnews/index",
     "pages/me/index",
-    "pages/data/index/index",
     "pages/brain/index/index",
     "pages/detail/index"
   ],

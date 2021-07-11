@@ -1,11 +1,12 @@
-// miniprogram/pages/find/detail/index.js
+// miniprogram/pages/data/cardlist/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    detail: {}
+    first: {},
+    list: []
   },
 
   /**
@@ -64,19 +65,18 @@ Page({
 
   },
   getData(options) {
-    let id = options.id,
-      databaseName = getApp().getDatabaseName(options.type);
+    let databaseName = getApp().getDatabaseName(options.type);
     const db = wx.cloud.database();
-    db.collection(databaseName).where({
-      _id: id
-    }).get().then(res => {
-      // res.data 包含该记录的数据
-      let data = res.data[0];
-      this.setData({
-        detail: data
-      })
-    }, res => {
-      console.log(res);
+    let that = this;
+    db.collection(databaseName).orderBy("createTime", "desc").get({
+      success: res => {
+        let first = res.data[0];
+        res.data.splice(0, 1);
+        that.setData({
+          'first': first,
+          'list': res.data
+        })
+      }
     })
   }
 })

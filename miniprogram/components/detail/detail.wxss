@@ -1,7 +1,7 @@
 /* miniprogram/pages/find/detail/index.wxss */
 @import '/style/style.wxss';
 .title {
-  height: 420rpx;
+  height: 400rpx;
   padding: 26rpx 40rpx;
   position: relative;
 }

@@ -13,7 +13,27 @@ App({
         traceUser: true,
       })
     }
-
     this.globalData = {}
+  },
+  getDatabaseName(inx) {
+    let databaseName;
+    switch (parseInt(inx)) {
+      case 0:
+        databaseName = "news";
+        break;
+      case 1:
+        databaseName = "king";
+        break;
+      case 2:
+        databaseName = "score";
+        break;
+      case 3:
+        databaseName = "happy";
+        break;
+      case 4:
+        databaseName = "soul";
+        break;
+    }
+    return databaseName
   }
 })

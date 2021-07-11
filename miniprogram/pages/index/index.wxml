@@ -1,2 +1,15 @@
-<!--miniprogram/pages/index/index.wxml-->
-<text>miniprogram/pages/index/index.wxml</text>
+<view class="bac">
+  <view class="d-flex align-items-end">
+    <view class="cube cube-6x3">
+      <text>24</text>
+      <text class="unit">天</text>
+      <view class="title">距离上次更新卡包</view>
+    </view>
+    <view class="cube cube-2x2">
+      <text>6</text>
+      <text class="unit">个</text>
+      <view class="title">已知Bug</view>
+    </view>
+    <view class="cube cube-3x2"></view>
+  </view>
+</view>
