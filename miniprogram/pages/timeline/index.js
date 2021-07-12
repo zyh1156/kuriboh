@@ -1,4 +1,4 @@
-// miniprogram/pages/index/index.js
+// miniprogram/pages/timeline/index.js
 Page({
 
   /**
@@ -12,7 +12,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getData(options);
   },
 
   /**
@@ -62,5 +62,17 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  getData(options) {
+    let dataBaseName = options.type;
+    const db = wx.cloud.database();
+    db.collection(dataBaseName).orderBy("createTime", "desc").get({
+      success: res => {
+        console.log(res.data);
+        this.setData({
+          'list': res.data
+        })
+      }
+    })
   }
 })

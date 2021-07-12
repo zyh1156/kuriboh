@@ -1,0 +1,57 @@
+/* miniprogram/pages/timeline/index.wxss */
+@import '/style/style.wxss';
+
+.timeline {
+  padding: 40rpx;
+}
+
+.timeline .timeline-item {
+  padding-bottom: 24rpx;
+  position: relative;
+}
+
+.timeline-item .line {
+  position: absolute;
+  left: 8rpx;
+  height: 100%;
+  border-left: 4rpx solid #ccced3;
+}
+.timeline-item:last-child .line{
+  display: none;
+}
+.timeline-item .circular {
+  left: -1px;
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  background-color: #ccced3;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.timeline-item .item-body {
+  position: relative;
+  padding-left: 40rpx;
+  top: -6rpx;
+}
+
+.item-body .title {
+  margin-bottom: 16rpx;
+  padding-top: 8rpx;
+  color: #68707d;
+  line-height: 1;
+  font-size: 26rpx;
+}
+
+.item-body .content {
+  padding: 40rpx;
+  box-shadow: 0 4rpx 24rpx 0 rgb(0 0 0 / 10%);
+  border-radius: 8rpx;
+  border: 2rpx solid #ebeef5;
+  background-color: #fff;
+  overflow: hidden;
+  color: #303133;
+  transition: .3s;
+}

@@ -11,7 +11,14 @@
       "list": []
     },
     "miniprogram": {
-      "list": []
+      "list": [
+        {
+          "name": "pages/timeline/index",
+          "pathName": "pages/timeline/index",
+          "query": "type=role",
+          "scene": null
+        }
+      ]
     }
   }
 }

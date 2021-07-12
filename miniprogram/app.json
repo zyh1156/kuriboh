@@ -1,6 +1,8 @@
 {
   "pages": [
-    "pages/index/index",
+    "pages/index/index/index",
+    "pages/brain/addevent/index",
+    "pages/timeline/index",
     "pages/data/index/index",
     "pages/data/cardlist/index",
     "pages/find/index/index",
@@ -18,7 +20,7 @@
   "tabBar": {
     "list": [
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/index/index/index",
         "text": "首页"
       },
       {

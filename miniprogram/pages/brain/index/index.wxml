@@ -1,7 +1,7 @@
 <view class="bd-example">
   <view class="list-group">
     <navigator class="list-group-item" url="../addnews/index">添加新闻</navigator>
-    <view class="list-group-item">添加新闻</view>
-    <view class="list-group-item">添加新闻</view>
+    <navigator class="list-group-item" url="../addevent/index">添加事件</navigator>
+    <view class="list-group-item">添加Bug</view>
   </view>
 </view>

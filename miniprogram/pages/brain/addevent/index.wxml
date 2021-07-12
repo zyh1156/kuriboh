@@ -1,0 +1,31 @@
+<view class="bd-example">
+  <form bindsubmit="save">
+    <view class="form-group form-row">
+      <view class="col-2 col-form-label">投稿类型</view>
+      <view class="col-10">
+        <picker bindchange="bindTypesChange" range-key="text" value="{{form.type}}" range="{{types}}">
+          <view class="form-control text-center">
+            <text wx:if="{{form.type==index}}" wx:key="index" wx:for="{{types}}">{{item.text}}</text>
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="form-group form-row">
+      <view class="col-2 col-form-label">更新时间</view>
+      <view class="col-10">
+        <picker bindchange="bindDateChange" mode="date">
+          <view class="form-control text-center">{{form.dateString}}</view>
+        </picker>
+      </view>
+    </view>
+    <view class="form-group">
+      <view class="col-form-label">正文内容</view>
+      <view>
+        <textarea maxlength="-1" name="content" class="form-control content" />
+      </view>
+    </view>
+    <view>
+      <button form-type="submit">发布</button>
+    </view>
+  </form>
+</view>

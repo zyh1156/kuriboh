@@ -1,0 +1,24 @@
+<view class="bac">
+  <view class="d-flex align-items-end flex-wrap">
+    <view class="cube cube-6x3">
+      <text>{{cardbag}}</text>
+      <text class="unit">天</text>
+      <view class="title">最近一次更新卡包</view>
+    </view>
+    <view class="cube cube-2x2">
+      <text>6</text>
+      <text class="unit">个</text>
+      <view class="title">已知Bug</view>
+    </view>
+    <view class="cube cube-3x2"></view>
+    <view class="cube cube-3x3">
+      <text>12</text>
+      <view class="title">shenme</view>
+    </view>
+    <navigator url="/pages/timeline/index?type=role" class="cube cube-6x2">
+      <text>{{role}}</text>
+      <text class="unit">天</text>
+      <view class="title">最近一次更新角色</view>
+    </navigator>
+  </view>
+</view>

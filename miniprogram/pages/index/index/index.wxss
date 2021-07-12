@@ -1,0 +1,73 @@
+@import '/style/style.wxss';
+
+.cube {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #fff;
+  position: relative;
+  padding-bottom: 48rpx;
+  border: 2rpx solid #e1e5ea;
+}
+
+.cube .title {
+  font-size: 24rpx;
+  font-weight: normal;
+  position: absolute;
+  right: 12rpx;
+  bottom: 12rpx;
+  line-height: 1.5;
+}
+
+.cube .unit {
+  font-size: 24rpx;
+  font-weight: normal;
+  padding: 12rpx 0 0 12rpx;
+}
+
+.cube-1x1 {
+  width: 75rpx;
+  height: 75rpx;
+  background-color: red;
+}
+
+.cube-2x1 {
+  font-size: 40rpx;
+  width: 150rpx;
+  height: 75rpx;
+  background-color: #007b43;
+}
+
+.cube-2x2 {
+  font-size: 80rpx;
+  width: 150rpx;
+  height: 150rpx;
+  background-color: #007b43;
+}
+
+.cube-3x2 {
+  width: 225rpx;
+  height: 150rpx;
+  background-color: #007bbb;
+}
+.cube-3x3{
+  font-size: 120rpx;
+  width: 225rpx;
+  height: 225rpx;
+  background-color: #007b43;
+}
+
+.cube-6x2 {
+  font-size: 80rpx;
+  width: 375rpx;
+  height: 150rpx;
+  background-color: #007bbb;
+}
+
+.cube-6x3 {
+  font-size: 120rpx;
+  width: 375rpx;
+  height: 225rpx;
+  background-color: #007bbb;
+}

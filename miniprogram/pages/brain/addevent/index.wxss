@@ -1,0 +1,33 @@
+@import '/style/style.wxss';
+@import '/style/iconfont.wxss';
+.content{
+  height: 300rpx;
+  font-size: 20rpx;
+}
+.img-ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.img-ul .img-li {
+  width: 128rpx;
+  height: 187rpx;
+  margin: 11.5rpx 11.5rpx 0 0;
+
+}
+.img-ul .img-li:nth-child(5n){
+  margin-right: 0;
+}
+
+.img-ul .img-li.add-icon {
+  border: 1px solid #aaa;
+  background-color: #fff;
+  border-radius: 6rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.img-ul .img-li.add-icon .iconfont{
+  font-size: 64rpx;
+
+}
