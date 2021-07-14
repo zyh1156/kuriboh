@@ -43,6 +43,7 @@
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
   "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
+  "compileType": "miniprogram",
   "condition": {
     "plugin": {
       "list": []
@@ -54,14 +55,7 @@
       "list": []
     },
     "miniprogram": {
-      "list": [
-        {
-          "name": "pages/find/detail/index",
-          "pathName": "pages/find/detail/index",
-          "query": "id=79550af260e8149d256a362241c6dbe2",
-          "scene": null
-        }
-      ]
+      "list": []
     }
   }
 }

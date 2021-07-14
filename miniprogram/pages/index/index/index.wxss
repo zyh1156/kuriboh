@@ -29,45 +29,87 @@
 .cube-1x1 {
   width: 75rpx;
   height: 75rpx;
-  background-color: red;
 }
 
 .cube-2x1 {
   font-size: 40rpx;
   width: 150rpx;
   height: 75rpx;
-  background-color: #007b43;
 }
 
 .cube-2x2 {
   font-size: 80rpx;
   width: 150rpx;
   height: 150rpx;
-  background-color: #007b43;
 }
 
 .cube-3x2 {
   width: 225rpx;
   height: 150rpx;
-  background-color: #007bbb;
 }
-.cube-3x3{
+
+.cube-3x3 {
   font-size: 120rpx;
   width: 225rpx;
   height: 225rpx;
-  background-color: #007b43;
 }
 
 .cube-6x2 {
   font-size: 80rpx;
   width: 375rpx;
   height: 150rpx;
-  background-color: #007bbb;
 }
 
 .cube-6x3 {
   font-size: 120rpx;
   width: 375rpx;
   height: 225rpx;
-  background-color: #007bbb;
+}
+
+.cube:nth-child(1) {
+  background-color: #2e86f0;
+}
+
+.cube:nth-child(2) {
+  background-color: #6db81f;
+}
+
+.cube:nth-child(3) {
+  background-color: #ba1d4a;
+}
+
+.cube:nth-child(4) {
+  background-color: #02a21c;
+}
+
+.cube:nth-child(5) {
+  background-color: #613dbb;
+}
+
+.cube:nth-child(6) {
+  background-color: #2e86f0;
+}
+
+.cube:nth-child(7) {
+  background-color: #613dbb;
+}
+
+.cube:nth-child(8) {
+  background-color: #dc542e;
+}
+
+.cube:nth-child(9) {
+  background-color: #dc542e;
+}
+
+.cube:nth-child(10) {
+  background-color: #02a21c;
+}
+
+.cube:nth-child(11) {
+  background-color: #2e86f0;
+}
+
+.cube:nth-child(12) {
+  background-color: #1b7983;
 }

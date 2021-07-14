@@ -66,7 +66,7 @@ Page({
   getData(options) {
     let dataBaseName = options.type;
     const db = wx.cloud.database();
-    db.collection(dataBaseName).orderBy("createTime", "desc").get({
+    db.collection(dataBaseName).orderBy("date", "desc").get({
       success: res => {
         console.log(res.data);
         this.setData({

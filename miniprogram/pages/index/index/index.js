@@ -6,16 +6,14 @@ Page({
    */
   data: {
     cardbag: 0,
-    role:0
+    role: 0,
+    monster: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    this.getCardbag();
-    this.getRole();
-  },
+  onLoad: function (options) {},
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -28,6 +26,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.getCardbag();
+    this.getRole();
+    this.getMonster();
 
   },
 
@@ -67,27 +68,55 @@ Page({
   },
   getCardbag() {
     const db = wx.cloud.database();
-    db.collection('cardbag').orderBy("createTime", "desc").limit(1).get({
+    db.collection('cardbag').orderBy("date", "desc").limit(1).get({
       success: res => {
-        let data = res.data[0];
-        let day = parseInt(new Date().getTime() / 1000) * 1000 - data.date;
-        day = parseInt(day / 1000 / 60 / 60 / 24);
+        let data = res.data[0],
+          day;
+        if (data == undefined) {
+          day = 0;
+        } else {
+          day = Math.floor(new Date().getTime() / 1000 / 60 / 60 / 24) * 1000 * 60 * 60 * 24 - data.date;
+          day = parseInt(day / 1000 / 60 / 60 / 24);
+        }
         this.setData({
           'cardbag': day
         })
       }
     })
   },
-  getRole(){
+  getRole() {
     const db = wx.cloud.database();
-    db.collection('role').orderBy("createTime", "desc").limit(1).get({
+    db.collection('role').orderBy("date", "desc").limit(1).get({
       success: res => {
-        let data = res.data[0];
-        console.log(data);
-        let day = parseInt(new Date().getTime() / 1000) * 1000 - data.date;
-        day = parseInt(day / 1000 / 60 / 60 / 24);
+        let data = res.data[0],
+          day;
+        if (data == undefined) {
+          day = 0;
+        } else {
+          day = Math.floor(new Date().getTime() / 1000 / 60 / 60 / 24) * 1000 * 60 * 60 * 24 - data.date;
+          day = parseInt(day / 1000 / 60 / 60 / 24);
+        }
         this.setData({
           'role': day
+        })
+      }
+    })
+  },
+
+  getMonster() {
+    const db = wx.cloud.database();
+    db.collection('monster').orderBy("date", "desc").limit(1).get({
+      success: res => {
+        let data = res.data[0],
+          day;
+        if (data == undefined) {
+          day = 0;
+        } else {
+          day = Math.floor(new Date().getTime() / 1000 / 60 / 60 / 24) * 1000 * 60 * 60 * 24 - data.date;
+          day = parseInt(day / 1000 / 60 / 60 / 24);
+        }
+        this.setData({
+          'monster': day
         })
       }
     })
